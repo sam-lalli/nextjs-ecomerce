@@ -1,8 +1,33 @@
 /* eslint-disable @next/next/no-img-element */
+import React, { useContext } from 'react'
+import { useRouter } from 'next/router'
+import data from '../utils/data';
 import Link from 'next/link'
-import React from 'react'
+import { Store } from '../utils/Store';
 
 export default function ProductItem({product}) {
+    // const { state, dispatch } = useContext(Store);
+    // const { query } = useRouter();
+    // const router = useRouter();
+    // const { slug } = query
+    // let product = data.products.find(x => x.slug === slug)
+    // if(!product){
+    //     return <div>Product Not Found</div>
+    // }
+
+    // const addToCart = () => {
+    //     const existItem = state.cart.cartItems.find((x) => x.slug === product.slug);
+    //     const quantity = existItem ? existItem.quantity + 1 : 1;
+
+    //     if(product.countInStock < quantity) {
+    //         alert('Sorrt, this product is out of stock');
+    //         return;
+    //     }
+
+    //     dispatch({ type: 'CART_ADD_ITEM' , payload: { ...product, quantity: quantity} });
+    //     router.push('/cart')
+    // };
+
   return (
     <div className='card'>
         <Link href={`/product/${product.slug}`}>
@@ -23,7 +48,7 @@ export default function ProductItem({product}) {
             </Link>
             <p className='mb-2'>{product.brand}</p>
             <p>${product.price}</p>
-            <button className='primary-button' type='button'>
+            <button className='primary-button' type='button' >
                 Add to cart
             </button>
         </div>
